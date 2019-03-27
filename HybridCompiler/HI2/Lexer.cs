@@ -7,7 +7,7 @@ namespace HI2
     {
         public Lexer(string text) => this.text = text;
 
-        // 문자열로 부터 토큰을 가져온다.
+        // 문자열로부터 토큰을 가져온다.
         public Token GetNextToken()
         {
             while (CurrentChar != (char)0)
