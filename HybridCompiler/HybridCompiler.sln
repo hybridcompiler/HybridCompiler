@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HI1", "HI1\HI1.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HI2", "HI2\HI2.csproj", "{AF92B42F-7F9B-4ADE-AF46-F0E8E83A20B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HI3", "HI3\HI3.csproj", "{FCD0A7D5-3B54-42B7-90C0-5323A792D77B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HILibrary", "HILibrary\HILibrary.csproj", "{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AF92B42F-7F9B-4ADE-AF46-F0E8E83A20B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF92B42F-7F9B-4ADE-AF46-F0E8E83A20B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF92B42F-7F9B-4ADE-AF46-F0E8E83A20B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD0A7D5-3B54-42B7-90C0-5323A792D77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD0A7D5-3B54-42B7-90C0-5323A792D77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD0A7D5-3B54-42B7-90C0-5323A792D77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD0A7D5-3B54-42B7-90C0-5323A792D77B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
