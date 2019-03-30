@@ -21,14 +21,14 @@
 
     internal class Token
     {
-        public byte column;
-        public long integer;    // 정수 토큰의 값
-        public TT type;
+        public byte Column { get; private set; }
+        public long Integer { get; set; }
+        public TT Type { get; private set; }
 
         public Token(TT type, byte column)
         {
-            this.type = type;
-            this.column = column;
+            Type = type;
+            Column = column;
         }
     }
 }

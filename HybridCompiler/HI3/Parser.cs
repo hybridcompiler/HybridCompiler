@@ -20,9 +20,9 @@ namespace HI3
 
         private void Match(TT type)
         {
-            if (CurrentToken.type != type)
+            if (CurrentToken.Type != type)
             {
-                throw new HIException(ET.SyntaxError, Id.InvalidSyntax, CurrentToken.column);
+                throw new HIException(ET.SyntaxError, Id.InvalidSyntax, CurrentToken.Column);
             }
             MoveNext();
         }
@@ -34,7 +34,7 @@ namespace HI3
         {
             var leftNode = ParseTerm();
             var token = CurrentToken;
-            while (token.type == TT.Plus || token.type == TT.Minus)
+            while (token.Type == TT.Plus || token.Type == TT.Minus)
             {
                 MoveNext();
                 leftNode = new BinaryNode(leftNode, token, ParseTerm());
@@ -49,13 +49,13 @@ namespace HI3
             var token = CurrentToken;
             MoveNext();
 
-            switch (token.type)
+            switch (token.Type)
             {
                 case TT.Plus:
                 case TT.Minus:
                     var integerToken = CurrentToken;
                     Match(TT.Integer);
-                    if (token.type == TT.Minus) { integerToken.integer *= -1; }
+                    if (token.Type == TT.Minus) { integerToken.Integer *= -1; }
                     return new IntegerNode(integerToken);
 
                 case TT.Integer:
@@ -66,7 +66,7 @@ namespace HI3
                     Match(TT.RightParens);
                     return node;
 
-                default: throw new HIException(ET.SyntaxError, Id.InvalidSyntax, token.column);
+                default: throw new HIException(ET.SyntaxError, Id.InvalidSyntax, token.Column);
             }
         }
 
@@ -75,7 +75,7 @@ namespace HI3
         {
             var leftNode = ParseFactor();
             var token = CurrentToken;
-            while (token.type == TT.Mul || token.type == TT.Div)
+            while (token.Type == TT.Mul || token.Type == TT.Div)
             {
                 MoveNext();
                 leftNode = new BinaryNode(leftNode, token, ParseFactor());

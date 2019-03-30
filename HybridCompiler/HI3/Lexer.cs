@@ -6,11 +6,19 @@ namespace HI3
 {
     internal class Lexer
     {
+        // 문자를 Token 타입으로 매핑해주는 맵을 설정한다.
+        // static 필드들에 대한 설정이기 static 생성자에서 설정한다..
+        static Lexer()
+        {
+            Enum.GetValues(typeof(TT)).Cast<TT>().Where(type => type <= TT.EOF).
+                ToList().ForEach(type => charToTokenTypeMap[(int)type] = type);
+            for (char chr = '0'; chr <= '9'; chr++) { charToTokenTypeMap[chr] = TT.Integer; }
+        }
+
         public Lexer(string text)
         {
             this.text = text;
             HIException.Text = text;
-            Initialize();
         }
 
         // 문자열로부터 토큰을 가져온다.
@@ -28,7 +36,7 @@ namespace HI3
                     case TT.Space: SkipSpace(); continue;
 
                     case TT.Integer:
-                        var token = new Token(type, column) { integer = GetInteger() };
+                        var token = new Token(type, column) { Integer = GetInteger() };
                         return token;
 
                     default: MoveNext(); return new Token(type, column);
@@ -45,7 +53,7 @@ namespace HI3
             {
                 token = GetNextToken();
                 tokens.Add(token);
-            } while (token.type != TT.EOF);
+            } while (token.Type != TT.EOF);
 
             return tokens;
         }
@@ -75,18 +83,6 @@ namespace HI3
             } while (CurrentTokenType == TT.Integer);
 
             return integer;
-        }
-
-        // 문자를 Token 타입으로 매핑해주는 맵을 설정한다.
-        // static 필드들에 대한 설정이기 때문에 첫 Lexer 객체를 생성할 때만 실행되도록 한다.
-        private void Initialize()
-        {
-            if (isInitialized) { return; }
-            isInitialized = true;
-
-            Enum.GetValues(typeof(TT)).Cast<TT>().Where(type => type <= TT.EOF).
-                ToList().ForEach(type => charToTokenTypeMap[(int)type] = type);
-            for (char chr = '0'; chr <= '9'; chr++) { charToTokenTypeMap[chr] = TT.Integer; }
         }
 
         // 문자열의 다음 문자로 이동한다.
