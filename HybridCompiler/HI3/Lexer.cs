@@ -61,8 +61,6 @@ namespace HI3
         private static readonly TT[] charToTokenTypeMap =
             Enumerable.Repeat(TT.InvalidType, byte.MaxValue + 1).ToArray();
 
-        private static bool isInitialized;
-
         private readonly string text;
         private byte currentColumn;
         private int currentPos;

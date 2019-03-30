@@ -4,7 +4,7 @@ namespace HILibrary
 {
     public class HIUnitTest
     {
-        public readonly static Exception Error = new Exception();
+        public static Exception Error => new Exception();
 
         public string Text { get; private set; }
 
