@@ -6,12 +6,11 @@ namespace HILibrary
     {
         public readonly static Exception Error = new Exception();
 
-        public readonly object targetValue; // 유닛 테스트 실행시 예상되는 결과값
-        public readonly string text;        // 문자열
+        public string Text { get; private set; }
 
         public HIUnitTest(string text, object targetValue)
         {
-            this.text = text;
+            Text = text;
             this.targetValue = targetValue;
         }
 
@@ -32,7 +31,7 @@ namespace HILibrary
                 {
                     if (test.targetValue.GetType() != Error.GetType())
                     {
-                        Print(testNotEqual, test.text, test.targetValue, nameof(Exception));
+                        Print(testNotEqual, test.Text, test.targetValue, nameof(Exception));
                         failed++;
                     }
                 }
@@ -45,12 +44,12 @@ namespace HILibrary
         {
             if (targetValue.GetType() == Error.GetType())
             {
-                Print(testNotEqual, text, nameof(Exception), result);
+                Print(testNotEqual, Text, nameof(Exception), result);
                 return 1;
             }
             if (!targetValue.TEquals(result))
             {
-                Print(testNotEqual, text, targetValue, result);
+                Print(testNotEqual, Text, targetValue, result);
                 return 1;
             }
             return 0;
@@ -59,6 +58,8 @@ namespace HILibrary
         private const string testBegin = "---------- {0} 시작";
         private const string testEnd = "========== {0} 완료: 성공 {1}, 실패 {2}";
         private const string testNotEqual = "{0}\n- 예상: {1}, 결과: {2}";
+
+        private readonly object targetValue;    // 유닛 테스트 실행시 예상되는 결과값
 
         private static void Print(string text, params object[] objects) =>
             Console.WriteLine(string.Format(text, objects));
