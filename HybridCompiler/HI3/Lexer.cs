@@ -58,10 +58,13 @@ namespace HI3
             return tokens;
         }
 
+        private const byte maxCharNumberPerLine = 100;
+
         private static readonly TT[] charToTokenTypeMap =
-            Enumerable.Repeat(TT.InvalidType, byte.MaxValue + 1).ToArray();
+                    Enumerable.Repeat(TT.InvalidType, byte.MaxValue + 1).ToArray();
 
         private readonly string text;
+
         private byte currentColumn;
         private int currentPos;
 
@@ -86,6 +89,10 @@ namespace HI3
         // 문자열의 다음 문자로 이동한다.
         private void MoveNext()
         {
+            if (currentPos > maxCharNumberPerLine)
+            {
+                throw new HIException(ET.SyntaxError, Id.TooManyCharacters, maxCharNumberPerLine);
+            }
             currentPos++;
             currentColumn++;
         }

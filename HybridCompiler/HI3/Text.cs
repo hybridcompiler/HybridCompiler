@@ -10,11 +10,15 @@ namespace HI3
 
         InvalidOperator,
 
-        // 에러
+        // SyntaxError
 
         InvalidSyntax,
         InvalidCharacter,
         TooManyCharacters,
+
+        // ZeroDivisionError
+
+        DivisionByZero,
     }
 
     internal class Texts : HIText
@@ -33,11 +37,15 @@ namespace HI3
 
             { "invalid operatpr", "유효하지 않은 연산자입니다." },
 
-            // 에러
+            // SyntaxError
 
             { "invalid syntax", "유효하지 않은 구문입니다." },
             { "invalid character", "유효하지 않은 문자입니다." },
             { "too many characters per line", "한 줄에 너무 많은 문자가 있습니다." },
+
+            // ZeroDivisionError
+
+            { "division by zero", "0으로 나누려 했습니다." }
         };
     }
 }

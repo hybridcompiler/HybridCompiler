@@ -25,9 +25,14 @@ namespace HI3
                 case TT.Plus: return leftValue + rightValue;
                 case TT.Minus: return leftValue - rightValue;
                 case TT.Mul: return leftValue * rightValue;
-                case TT.Div: return leftValue / rightValue;
+                case TT.Div:
+                    if (rightValue == 0)
+                    {
+                        throw new HIException(ET.ZeroDivisionError, Id.DivisionByZero, Operator.Column);
+                    }
+                    return leftValue / rightValue;
             }
-            HIDebug.Fail(Operator.Type, Id.InvalidOperator.Str());
+            HIDebug.Fail(Operator.Type, Id.InvalidOperator.ToText());
             return 0;
         }
     }

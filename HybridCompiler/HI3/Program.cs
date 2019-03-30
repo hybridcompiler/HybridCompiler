@@ -5,7 +5,7 @@ namespace HI3
 {
     internal static class Program
     {
-        public static string Str(this Id id) => lang[id];
+        public static string ToText(this Id id) => lang[id];
 
         private static readonly Texts lang = new Texts();
 

@@ -21,15 +21,16 @@ namespace HILibrary
                 {
                     main(text);
                 }
-                catch (Exception exception)
+                catch (Exception e)
                 {
-                    Console.WriteLine(exception.Message);
+                    Console.WriteLine(e.Message);
                 }
             }
         }
 
         private const string commandExit = "exit";
         private const string commandTest = "test";
+
         private const string prompot = "]";
     }
 }
