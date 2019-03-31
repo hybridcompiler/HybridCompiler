@@ -35,7 +35,7 @@ namespace HI3
 
             // Assert
 
-            { "invalid operatpr", "유효하지 않은 연산자입니다." },
+            { "invalid operator", "유효하지 않은 연산자입니다." },
 
             // SyntaxError
 

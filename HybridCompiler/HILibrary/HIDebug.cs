@@ -7,7 +7,7 @@ namespace HILibrary
     {
         // 확장된 Assert 메소드
         //
-        // 타입    실패값
+        // 타입    실패 값
         // =================
         // 전체    null
         // bool    false
@@ -60,7 +60,7 @@ namespace HILibrary
         }
 
         private const string assertEqualFailed = "{0}() assertion failed. '{1}' != '{2}'";
-        private const string assertFailed = "{0}() assertion failed. Type: {1}";
+        private const string assertFailed = "{0}() assertion failed. value: {1}";
 
         private static string Str(object obj) => (obj ?? "null").ToString();
     }
