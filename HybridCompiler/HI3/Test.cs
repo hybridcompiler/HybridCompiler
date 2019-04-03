@@ -28,7 +28,7 @@ namespace HI3
             };
             HIUnitTest.Run(tests, (test) =>
             {
-                var tokens = new Lexer(test.Text).Run();
+                var tokens = new Lexer(test.TestCode).Run();
                 var node = new Parser(tokens).Run();
                 var result = node.Visit();
                 return test.AssertEqual(result);
@@ -51,7 +51,7 @@ namespace HI3
             };
             HIUnitTest.Run(tests, (test) =>
             {
-                var lexer = new Lexer(test.Text);
+                var lexer = new Lexer(test.TestCode);
                 var token = lexer.GetNextToken();
                 return test.AssertEqual(token.Type);
             });

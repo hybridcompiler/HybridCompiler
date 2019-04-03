@@ -75,7 +75,7 @@ namespace HI2
                         factor = expression;
                         break;
 
-                    default: throw new Exception($"{token.type} : 알 수 없는 토큰 타입입니다.");
+                    default: throw new Exception($"{token.type} : 알 수 없는 Token 타입입니다.");
                 }
                 tracer.Print(factor);
                 return factor;

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9A8780F2-5225-4D81-BD10-E6DC5D1236F3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HILibrary</RootNamespace>
-    <AssemblyName>HILibrary</AssemblyName>
+    <ProjectGuid>{CDA9F26B-AA07-419E-9C09-CA1EC73EC006}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HI4</RootNamespace>
+    <AssemblyName>HI4</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,16 +22,15 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,16 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HIConsole.cs" />
-    <Compile Include="HIDebug.cs" />
-    <Compile Include="HIUnitTest.cs" />
-    <Compile Include="HIText.cs" />
+    <Compile Include="HIException.cs" />
+    <Compile Include="Keyword.cs" />
+    <Compile Include="Lexer.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Symbol.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="Token.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\README.md">
-      <Link>README.md</Link>
-    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HILibrary\HILibrary.csproj">
+      <Project>{9a8780f2-5225-4d81-bd10-e6dc5d1236f3}</Project>
+      <Name>HILibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

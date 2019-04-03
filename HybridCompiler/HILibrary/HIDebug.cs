@@ -7,12 +7,12 @@ namespace HILibrary
     {
         // 확장된 Assert 메소드
         //
-        // 타입    실패 값
-        // =================
-        // 전체    null
-        // bool    false
-        // string  empty("")
-        // 숫자    0
+        // Type     Fail
+        // ==================
+        // all      null
+        // bool     false
+        // string   empty("")
+        // number   0
         [Conditional("DEBUG")]
         public static void Assert(object value, string message = null)
         {
@@ -32,7 +32,6 @@ namespace HILibrary
             Debug.Assert(condition, string.Format(assertFailed, GetMethodName(), Str(value)), message);
         }
 
-        // 두 개의 값이 일치하지 않을 경우 실패한다.
         [Conditional("DEBUG")]
         public static void AssertEqual<T>(T value1, T value2, string message = null) =>
             Debug.Assert(value1.TEquals(value2), string.Format(assertEqualFailed,
@@ -42,17 +41,15 @@ namespace HILibrary
         public static void Fail(object message, string detailedMessage = null) =>
             Debug.Fail(message.ToString(), detailedMessage);
 
-        // 클래스명과 메소드명을 가져온다.
+        // 객체명과 메소드명을 가져온다.
         public static string GetMethodName(int stackFrame = 2)
         {
             var method = new StackFrame(stackFrame).GetMethod();
             return $"{method.DeclaringType.Name}.{method.Name}";
         }
 
-        // 클래스명과 메소드명을 출력한다.
         public static void PrintMethodName() => Console.WriteLine(GetMethodName());
 
-        // 두 개체를 비교한다.
         public static bool TEquals<T>(this T object1, T object2)
         {
             if (object1 == null || object2 == null) { return object1 == null && object2 == null; }

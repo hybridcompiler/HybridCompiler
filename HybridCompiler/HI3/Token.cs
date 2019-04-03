@@ -2,7 +2,7 @@
 {
     internal enum TT
     {
-        InvalidType,    // 유효하지 않은 토큰 타입
+        InvalidType,    // 유효하지 않은 Token 타입
 
         Space = ' ',
 

@@ -31,7 +31,7 @@ namespace HI2
             return new Token { type = TokenType.EOF };
         }
 
-        // 문자열을 토큰 목록으로 변환한다.
+        // 문자열을 Token 목록으로 변환한다.
         public List<Token> Run()
         {
             Token token;
