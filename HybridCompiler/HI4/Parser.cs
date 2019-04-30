@@ -77,8 +77,7 @@ namespace HI4
             return leftNode;
         }
 
-        // EBNF : factor =  ( [ "+" | "-" ], factor ) |
-        //                  ( integer | identifier ) |
+        // EBNF : factor =  ( [ "+" | "-" ], factor ) | integer | identifier |
         //                  ( "(", expression, ")" ) ;
         private Node ParseFactor()
         {

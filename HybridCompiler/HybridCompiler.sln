@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HILibrary", "HILibrary\HILi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HI4", "HI4\HI4.csproj", "{CDA9F26B-AA07-419E-9C09-CA1EC73EC006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HI5", "HI5\HI5.csproj", "{B6DFE7D4-FB4E-4BCF-9EB3-45F52A8EFB60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CDA9F26B-AA07-419E-9C09-CA1EC73EC006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDA9F26B-AA07-419E-9C09-CA1EC73EC006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDA9F26B-AA07-419E-9C09-CA1EC73EC006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DFE7D4-FB4E-4BCF-9EB3-45F52A8EFB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DFE7D4-FB4E-4BCF-9EB3-45F52A8EFB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DFE7D4-FB4E-4BCF-9EB3-45F52A8EFB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DFE7D4-FB4E-4BCF-9EB3-45F52A8EFB60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

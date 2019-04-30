@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HI4
+namespace HI5
 {
     internal class Lexer
     {
@@ -48,7 +48,7 @@ namespace HI4
                     // 현재는 CR+LF 또는 LF가 사용된다. CR은 공백처럼 스킵하고 LF를 줄바꿈으로 처리한다.
                     // CR은 실제 화면에 출력되는 문자가 아니기 때문에 currentColumn은 증가시키지 않기 위해
                     // MoveNext()를 사용하지 않는다.
-                    case TT.LF: currentPos++; currentLine++; continue;
+                    case TT.LF: currentPos++; currentLine++; currentColumn = 0; continue;
                     case TT.CR: currentPos++; continue;
 
                     case TT.Space: SkipSpace(); continue;
@@ -56,6 +56,25 @@ namespace HI4
                     case TT.Integer: return new Token(GetInteger(), column, currentLine);
 
                     case TT.Identifier: return new Token(GetIdentifier(), column, currentLine);
+
+                    case TT.Assign:
+                    case TT.Not:
+                    case TT.LessThan:
+                    case TT.GreaterThan:
+                    case TT.BitAnd:
+                    case TT.BitOr:
+                        MoveNext();
+                        var nextType = CurrentTokenType;
+                        for(int i = 0;i <= twoCharOperators.GetUpperBound(0);i++)
+                        {
+                            if (twoCharOperators[i,0] == type && twoCharOperators[i, 1] == nextType)
+                            {
+                                type = twoCharOperators[i, 2];
+                                MoveNext();
+                                break;
+                            }
+                        }
+                        return new Token(type, column, currentLine);
 
                     default: MoveNext(); return new Token(type, column, currentLine);
                 }
@@ -81,6 +100,18 @@ namespace HI4
             Enumerable.Repeat(TT.Invalid, byte.MaxValue + 1).ToArray();
 
         private readonly string sourceCode;
+
+        private readonly TT[,] twoCharOperators =
+        {
+            { TT.Assign, TT.Assign, TT.Equal },
+            { TT.Not, TT.Assign, TT.NotEqual },
+            { TT.LessThan, TT.Assign, TT.LessThanEqual },
+            { TT.GreaterThan, TT.Assign, TT.GreaterThanEqual },
+            { TT.BitAnd, TT.BitAnd, TT.And },
+            { TT.BitOr, TT.BitOr, TT.Or },
+            { TT.LessThan, TT.LessThan, TT.LeftShift },
+            { TT.GreaterThan, TT.GreaterThan, TT.RightShift },
+        };
 
         private byte currentColumn;
         private int currentLine;
