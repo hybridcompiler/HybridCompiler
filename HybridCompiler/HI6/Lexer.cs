@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HI5
+namespace HI6
 {
     internal class Lexer
     {
@@ -55,7 +55,9 @@ namespace HI5
 
                     case TT.Integer: return new Token(GetInteger(), column, currentLine);
 
-                    case TT.Identifier: return new Token(GetIdentifier(), column, currentLine);
+                    case TT.Identifier: return new Token(TT.Identifier, GetIdentifier(), column, currentLine);
+
+                    case TT.String: return new Token(TT.String, GetString(), column, currentLine);
 
                     case TT.Assign:
                     case TT.Not:
@@ -147,6 +149,20 @@ namespace HI5
             } while (CurrentTokenType == TT.Integer);
 
             return integer;
+        }
+
+        // EBNF : string = '"', { all characters }, '"' ;
+        private string GetString()
+        {
+            MoveNext();
+            var str = new StringBuilder();
+            while(CurrentTokenType != TT.String)
+            {
+                str.Append(CurrentChar);
+                MoveNext();
+            }
+            MoveNext();
+            return str.ToString();
         }
 
         private void MoveNext()

@@ -48,7 +48,7 @@ namespace HI4
                     // 현재는 CR+LF 또는 LF가 사용된다. CR은 공백처럼 스킵하고 LF를 줄바꿈으로 처리한다.
                     // CR은 실제 화면에 출력되는 문자가 아니기 때문에 currentColumn은 증가시키지 않기 위해
                     // MoveNext()를 사용하지 않는다.
-                    case TT.LF: currentPos++; currentLine++; continue;
+                    case TT.LF: currentPos++; currentLine++; currentColumn = 0; continue;
                     case TT.CR: currentPos++; continue;
 
                     case TT.Space: SkipSpace(); continue;
@@ -120,7 +120,7 @@ namespace HI4
 
         private void MoveNext()
         {
-            if (currentPos > maxCharNumberPerLine)
+            if (currentColumn > maxCharNumberPerLine)
             {
                 throw new HIException(ET.SyntaxError, Id.TooManyCharacters,
                     maxCharNumberPerLine, currentLine);

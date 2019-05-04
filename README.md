@@ -9,3 +9,4 @@
 [누구나 만들 수 있는 컴파일러 - 3](https://hybridcompiler.blogspot.com/2019/03/3.html)  
 [누구나 만들 수 있는 컴파일러 - 4](https://hybridcompiler.blogspot.com/2019/04/4.html)  
 [누구나 만들 수 있는 컴파일러 - 5](https://hybridcompiler.blogspot.com/2019/05/5.html)  
+[누구나 만들 수 있는 컴파일러 - 5](https://hybridcompiler.blogspot.com/2019/05/6.html)  
